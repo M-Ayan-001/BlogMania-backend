@@ -19,7 +19,7 @@ mongoose.connect(process.env.MONGO_URI).then(() => {
 })
 
 app.use(cors({
-    origin: 'http://localhost:5173',
+    origin: 'https://blog-mania-frontend.vercel.app',
     credentials: true
 }))
 
