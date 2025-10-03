@@ -55,7 +55,9 @@ const login = async (req, res) => {
 
 const logout = (req, res) => {
     try {
-        res.cookie("token", "", { httpOnly: true, secure: true, sameSite: "none", expires: new Date(0) })
+        res.cookie("token", "", {
+            httpOnly: true, secure: true, sameSite: "none", expires: new Date(0), path: "/", domain: ".vercel.app"
+        })
         res.status(200).json({ message: "Logged out Successfully" })
     } catch (err) {
         res.status(500).json({ message: "Server error", error: err.message })
