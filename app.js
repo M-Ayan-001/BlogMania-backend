@@ -15,7 +15,7 @@ const app = express();
 if (!mongoose.connection.readyState) {
     mongoose.connect(process.env.MONGO_URI)
         .then(() => console.log('✅ Database connected'))
-        .catch((err) => console.error('❌ DB connection error:', err));
+        .catch((err) => console.error('DB connection error:', err));
 }
 
 app.use(cors({
@@ -30,6 +30,6 @@ app.use(express.urlencoded({ extended: true }));
 app.use('/api/user', router);
 app.use('/api/blog', blogrouter);
 
-// ❌ NO app.listen() on Vercel
-// ✅ Export app for Vercel
+// NO app.listen() on Vercel
+// Export app for Vercel
 module.exports = app;
